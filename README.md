@@ -3,6 +3,20 @@ This system automates the ticketing of events in Python, for example: concerts, 
 
 **I'm still adding more features.**
 
+# System
+
+**-Name**
+**-Age**
+**-Student**
+
+# Events
+
+**-Shows**
+**-Circo**
+**-Parque**
+**-Cinema**
+**-Teatro**
+
 ## 🧰 Tools
 - **Language:** Python
 
