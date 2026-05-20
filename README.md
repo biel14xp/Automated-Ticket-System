@@ -22,4 +22,4 @@ This system automates the ticketing of events in Python, for example: concerts, 
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ---
-Developed with 💻 by **Gabriel (biel_14xp)**
+Developed by **Gabriel (biel_14xp)**
