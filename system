@@ -1,8 +1,8 @@
-#faturamento Total
+    # Faturamento Total
 
 faturamento_total = 0.0
 
-#Lista de preços
+    # Lista de preços e estoque
 
 eventos = {
         "1": ["Cinema", 25.00, 10],
@@ -16,6 +16,8 @@ while True:
     
     nome = input("Qual seu nome: ")
 
+    #Validação da idade
+
     while True:
         try:
             idade = int(input("Qual sua idade: "))
@@ -25,29 +27,24 @@ while True:
 
     estudante = input("Você é estudante: (S/N):").lower()
 
-    #Eventos
-
+    #Menu de Eventos gerado automaticamente
     print("\nEscolha o evento: ")
-    print("1 - Cinema")
-    print("2 - Teatro")
-    print("3 - Parque de Diversões")
-    print("4 - Circo")
-    print("5 - Show")
+    for chave, info in eventos.items():
+        print(f"{chave} - {info[0]}")
 
-    evento = input("\nDigite o nome do evento: ")
+    evento = input("\nDigite o número do evento: ")
 
+    # Validação do Evento e Estoque
     if evento not in eventos:
         print("Evento inválido")
         continue
-    else:
-        nome_evento, preco, estoque = eventos[evento]
 
-        if estoque == 0:
-            print(f"Desculpe, os ingressos para {evento} estão esgostados!")
-            continue
+    nome_evento, preco, estoque = eventos[evento]
+    if estoque == 0:
+        print(f"Desculpe, os ingressos para {nome_evento} estão esgotados!")
+        continue
 
-#Categoria de idades
-
+    # Categorias e Regras de Desconto
     if idade < 5:
         preco = 0
         categoria = "Criança (gratuito)"
@@ -66,31 +63,23 @@ while True:
     else:
         categoria = "Adulto (Inteira)"
 
-#Meia entrada para estudantes
-
-        if estudante == "s" and categoria == "Adulto":
-            preco = preco * 0.5
-            categoria = "Estudante (meia entrada)"
-
-#Dicionario
-
+    # Emissão do Ingresso
     print(f"\n=== INGRESSO ===")
     print(f"Nome: {nome}")
     print(f"Evento: {nome_evento}")
     print(f"Categoria: {categoria}")
     print(f"Preço: R$ {preco:.2f}")
-    print(f"\n================")
+    print(f"================\n")
 
-#Calculo do Faturamento Total
+    # Atualização do Estoque e Caixa
 
     eventos[evento][2] -= 1
     faturamento_total += preco
 
-#Comprar mais ingressos
-    
+    # Condição de parada do sistema
     resposta = input("\n Você deseja comprar outro ingresso? (S/N): ").lower()
     if resposta == "n":
         print("\n===============")
         print("\n Obrigado por usar nosso sistema!")
-        print(f"Faturamento: {faturamento_total:.2f}")
+        print(f"Faturamento Total do Dia: R$ {faturamento_total:.2f}")
         break
