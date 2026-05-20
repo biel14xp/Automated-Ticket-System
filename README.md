@@ -5,9 +5,9 @@ This system automates the ticketing of events in Python, for example: concerts, 
 
 # System
 
-**-Name**
-**-Age**
-**-Student**
+**Name**
+**Age**
+**Student**
 
 # Events
 
