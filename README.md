@@ -3,17 +3,18 @@ This system automates the ticketing of events in Python, for example: concerts, 
 
 **I'm still adding more features.**
 
-# ⚙️ System
+# ⚙️ Features
 
-- **Name**
-- **Age**
-- **Student**
+- **Personal Data**: Name, validated age, and student status.
+- **Error Handling**: System protected against input errors (like typing letters instead of numbers for age).
+- **Inventory Control**: Real-time ticket stock management for each event.
+- **Financial Report**: Displays the total revenue of the day upon closing the system.
 
 # 🪩 Events
 
-- **Shows**
+- **Show**
 - **Circo**
-- **Parque**
+- **Parque de Diversões**
 - **Cinema**
 - **Teatro**
 
@@ -21,4 +22,4 @@ This system automates the ticketing of events in Python, for example: concerts, 
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ---
-Developed by **Gabriel (biel_14xp)**
+Developed with 💻 by **Gabriel (biel_14xp)**
