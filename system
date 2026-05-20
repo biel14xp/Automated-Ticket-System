@@ -1,53 +1,96 @@
-nome = input("Qual seu nome: ")
-idade = int(input("Qual sua idade: "))
-estudante = input("Você é estudante: (S/N):").lower()
+#faturamento Total
 
-print("\n Escolha o evento: ")
-print("1 - Cinema")
-print("2 - Teatro")
-print("3 - Parque de Diversões")
-print("4 - Circo")
-print("5 - Show")
-evento = input("Digite o nome do evento: ")
+faturamento_total = 0.0
+
+#Lista de preços
 
 eventos = {
-    "1": ("Cinema", 25.00),
-    "2": ("Teatro", 45.00),
-    "3": ("Parque de Diversões", 80.00),
-    "4": ("Circo", 60.00),
-    "5": ("Show", 100.00),
-}
+        "1": ["Cinema", 25.00, 10],
+        "2": ["Teatro", 45.00, 10],
+        "3": ["Parque de Diversões", 80.00, 10],
+        "4": ["Circo", 60.00, 10],
+        "5": ["Show", 100.00, 10],
+    }
 
-if evento not in eventos:
-    print("Evento inválido")
-else:
-    nome_evento, preco = eventos[evento]
+while True:
+    
+    nome = input("Qual seu nome: ")
 
-if idade < 5:
-    preco = 0
-    categoria = "Criança (gratuito)"
-elif idade <= 12:
-    preco = preco * 0.5
-    categoria = "Criança (meia entrada)"
-elif idade <= 17:
-    preco = preco * 0.5
-    categoria = "Adolescente"
-elif idade > 60:
-    preco = preco * 0.5
-    categoria = "idoso (meia entrada)"
-elif estudante == "s":
-    preco = preco * 0.5
-    categoria = "Estudante (meia entrada)"
-else:
-    categoria = "Adulto (Inteira)"
+    while True:
+        try:
+            idade = int(input("Qual sua idade: "))
+            break
+        except ValueError:
+            print("Idade inválida! Por favor digite apenas números")
 
-    if estudante == "s" and categoria == "Adulto":
+    estudante = input("Você é estudante: (S/N):").lower()
+
+    #Eventos
+
+    print("\nEscolha o evento: ")
+    print("1 - Cinema")
+    print("2 - Teatro")
+    print("3 - Parque de Diversões")
+    print("4 - Circo")
+    print("5 - Show")
+
+    evento = input("\nDigite o nome do evento: ")
+
+    if evento not in eventos:
+        print("Evento inválido")
+        continue
+    else:
+        nome_evento, preco, estoque = eventos[evento]
+
+        if estoque == 0:
+            print(f"Desculpe, os ingressos para {evento} estão esgostados!")
+            continue
+
+#Categoria de idades
+
+    if idade < 5:
+        preco = 0
+        categoria = "Criança (gratuito)"
+    elif idade <= 12:
+        preco = preco * 0.5
+        categoria = "Criança (meia entrada)"
+    elif idade <= 17:
+        preco = preco * 0.5
+        categoria = "Adolescente"
+    elif idade > 60:
+        preco = preco * 0.5
+        categoria = "idoso (meia entrada)"
+    elif estudante == "s":
         preco = preco * 0.5
         categoria = "Estudante (meia entrada)"
+    else:
+        categoria = "Adulto (Inteira)"
 
-print(f"\n=== INGRESSO ===")
-print(f"Nome: {nome}")
-print(f"Evento: {nome_evento}")
-print(f"Categoria: {categoria}")
-print(f"Preço: R$ {preco:.2f}")
-print("================")
+#Meia entrada para estudantes
+
+        if estudante == "s" and categoria == "Adulto":
+            preco = preco * 0.5
+            categoria = "Estudante (meia entrada)"
+
+#Dicionario
+
+    print(f"\n=== INGRESSO ===")
+    print(f"Nome: {nome}")
+    print(f"Evento: {nome_evento}")
+    print(f"Categoria: {categoria}")
+    print(f"Preço: R$ {preco:.2f}")
+    print(f"\n================")
+
+#Calculo do Faturamento Total
+
+    eventos[evento][2] -= 1
+    faturamento_total += preco
+
+#Comprar mais ingressos
+    
+    resposta = input("\n Você deseja comprar outro ingresso? (S/N): ").lower()
+    if resposta == "n":
+        print("\n===============")
+        print("\n Obrigado por usar nosso sistema!")
+        print(f"Faturamento: {faturamento_total:.2f}")
+        break
