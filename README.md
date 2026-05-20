@@ -18,7 +18,8 @@ This system automates the ticketing of events in Python, for example: concerts, 
 - **Teatro**
 
 ## 🧰 Tools
-- ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-
+<div align="center">
+  ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+</div>
 ---
 Developed by **Gabriel (biel_14xp)**
